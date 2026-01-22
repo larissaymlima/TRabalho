@@ -1,0 +1,437 @@
+/* ==========================================================================
+   CONFIGURAÇÕES GERAIS E VARIÁVEIS
+   ========================================================================== */
+* {
+    margin: 0;                      /* Remove margens padrão do navegador */
+    padding: 0;                     /* Remove preenchimentos padrão do navegador */
+    box-sizing: border-box;         /* Padding e border não aumentam o tamanho do elemento */
+    font-family: 'Roboto', sans-serif; /* Define a fonte padrão para todo o site */
+}
+
+/* Agrupamento de títulos para evitar repetição de código */
+h1, h2, h3, .logo, .botao-principal, .botao-whatsapp, .btn-enviar-azul {
+    font-family: 'Archivo Black', sans-serif; /* Define a fonte de destaque */
+    text-transform: uppercase;      /* Transforma todos os textos em maiúsculos */
+}
+
+html {
+    scroll-behavior: smooth;        /* Faz o deslize suave ao clicar em links internos */
+}
+
+:root {
+    --primary-color: #e3a72f;      /* Variável para o tom dourado/laranja */
+    --bg-dark: #12141d;            /* Variável para o fundo escuro principal */
+    --bg-card: #4c88bf;            /* Variável para o azul dos cards e botões */
+    --text-light: #f5f5f5;         /* Variável para o texto quase branco */
+}
+
+body {
+    background-color: var(--bg-dark); /* Aplica a cor de fundo escura ao site */
+    color: var(--text-light);      /* Aplica a cor de texto clara ao site */
+    padding-top: 80px;              /* Abre espaço no topo para o menu fixo não cobrir o conteúdo */
+}
+
+/* ==========================================================================
+   CABEÇALHO (MENU)
+   ========================================================================== */
+.barra-topo {
+    position: fixed;                /* Fixa o menu no topo da tela durante a rolagem */
+    top: 0;                         /* Alinha no limite superior */
+    width: 100%;                    /* Ocupa toda a largura da tela */
+    height: 80px;                   /* Define a altura fixa da barra */
+    background-color: var(--bg-dark); /* Cor de fundo igual ao site */
+    display: flex;                  /* Ativa o modo flexível para alinhar itens */
+    justify-content: space-between; /* Empurra o logo para a esquerda e o menu para a direita */
+    align-items: center;            /* Alinha os itens verticalmente ao centro */
+    padding: 0 8%;                  /* Espaçamento interno lateral */
+    z-index: 1000;                  /* Garante que o menu fique acima de tudo */
+}
+
+.logo img {
+    height: 60px;                   /* Define o tamanho da imagem do logo */
+    width: auto;                    /* Ajuste a largura automaticamente para manter a proporção original*/
+}
+
+/* Unificação dos links de navegação para remover repetições */
+.menu-principal, nav {
+    display: flex;                  /* Coloca os itens da lista lado a lado */
+    list-style: none;               /* Remove as "bolinhas" da lista */
+    gap: 20px;                      /* Cria um espaço igual entre cada link */
+}
+
+nav a, .menu-principal a {
+    color: var(--text-light);      /* Cor branca para os links */
+    text-decoration: none;         /* Remove o sublinhado padrão dos links */
+    font-weight: 700;              /* Deixa o texto em negrito */
+    font-size: 0.9rem;             /* Tamanho da fonte */ 
+    transition: 0.3s;              /* Suaviza a mudança de cor no hover */
+}
+
+nav a:hover, .menu-principal a:hover {
+    color: var(--primary-color);   /* Muda para dourado ao passar o mouse */
+}
+
+/* ==========================================================================
+   SEÇÃO INÍCIO (HERO)
+   ========================================================================== */
+.secao-inicio {
+    display: flex;                  /* Alinha o texto (esquerda) e a imagem (direita) */
+    height: 100vh;                  /* Ocupa 100% da altura da tela visual */
+    overflow: hidden;               /* Impede que conteúdos vazem dessa seção */
+}
+
+.Texto-inicio {
+    width: 50%;                     /* Ocupa metade da largura da tela */
+    display: flex;                  /* Ativa flex para centralizar conteúdo */
+    align-items: center;            /* Centraliza o bloco de texto verticalmente */
+    padding: 0 8%;                  /* Espaçamento lateral do texto */
+    z-index: 2;                     /* Garante que o texto fique "acima" de possíveis fundos ou da imagem da direita */
+}
+
+.inicio-titulo h1 { 
+    font-size: 3rem;                /* Define um tamanho grande para o título principal */
+    line-height: 1.1;               /* Diminui o espaço entre as linhas do título */
+    margin-bottom: 20px;            /* Espaço abaixo do título */
+}
+
+.inicio-subtitulo { 
+    font-size: 1.1rem; 
+    margin-bottom: 35px; 
+} /* Explicação do parágrafo */
+
+.linha-numeros {
+    display: flex;                  /* Coloca os blocos de dados lado a lado */
+    gap: 15px;                      /* Espaço entre os blocos de números */
+    margin: 30px 0;                 /* Margem acima e abaixo da linha */
+}
+
+.bloco-numero {
+    background: rgba(255, 255, 255, 0.05); /* Fundo branco com 5% de opacidade (efeito vidro) */
+    padding: 15px 25px;             /* Espaçamento interno do bloco */
+    border-radius: 5px;             /* Arredondamento leve das bordas */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borda fina e discreta */
+}
+
+.valor-dado {
+    font-size: 1.8rem;              /* Tamanho do número em destaque */
+    color: var(--primary-color);   /* Cor dourada para o número */
+    display: block;                 /* Garante que o número ocupe sua própria linha */
+}
+
+.botao-principal {
+    background-color: var(--bg-card); /* Define a cor de fundo usando a variável azul (--bg-card) */
+    color: var(--text-light);      /* Define a cor do texto como o branco gelo da sua variável */
+    padding: 18px 45px;             /* Cria o "corpo" do botão: 18px de espaço em cima/baixo e 45px nas laterais */
+    border-radius: 50px;            /* Deixa o botão totalmente arredondado (pílula) */
+    text-decoration: none;          /* Remove o sublinhado padrão que todo link (tag <a>) possui */
+    font-weight: bold;              /* Deixa o texto em negrito para dar mais destaque à chamada de ação */
+    display: inline-block;          /* Permite que o link aceite o padding e as margens corretamente sem quebrar o layout */
+    transition: 0.3s;               /* Cria um "atraso" suave de 0.3 segundos para qualquer efeito que adicionarmos depois (como o hover) */
+}
+
+.botao-principal:hover {
+    transform: scale(1.05);         /* Aumenta o botão levemente ao passar o mouse */
+}
+
+.imagem-direita {
+    width: 55%;                     /* Ocupa um pouco mais da metade da tela */
+    background: url('Fotos/WhatsApp Image 2026-01-13 at 21.27.08.jpeg') center/cover; /* Imagem centralizada e cobrindo o espaço */
+    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%); /* Cria o corte diagonal moderno */
+    margin-left: -5%;               /* Sobrepõe levemente a seção de texto */
+    transition: 0.3s;               /* Suaviza efeitos na imagem */
+}
+
+.imagem-direita:hover {
+    transform: scale(1.05);               /* Efeito de leventar */
+}
+
+/* ==========================================================================
+   SERVIÇOS (CARDS)
+   ========================================================================== */
+.secao-servicos, .secao-formulario-clara {
+    padding: 80px 10%;              /* Espaçamento padrão para seções */
+    text-align: center;             /* Centraliza títulos e textos */
+}
+
+.servicos-cards {
+    display: flex;                  /* Alinha os cards */
+    flex-wrap: wrap;                /* Permite que os cards pulem de linha se necessário */
+    justify-content: center;        /* Centraliza o grupo de cards */
+    gap: 30px;                      /* Espaço entre os cards */
+    max-width: 900px;               /* Limita a largura do grupo de cards */
+    margin: 30px auto;              /* Centraliza o container na página */
+}
+
+.card-v2 {
+    background-color: var(--text-light);      /* Fundo claro para o card */
+    color: var(--bg-dark);                    /* Texto escuro para leitura no fundo claro */
+    padding: 35px;                  /* Espaço interno do card */
+    border-radius: 15px;            /* Bordas arredondadas */
+    width: calc(50% - 15px);        /* Faz cada card ocupar 50% da largura menos o gap */
+    min-width: 320px;               /* Impede que o card fique fino demais em telas menores */
+    text-align: left;               /* Alinha o texto do card à esquerda */
+    border-top: 5px solid var(--bg-card); /* Linha azul de destaque no topo */
+    transition: 0.3s;               /* Suaviza o efeito de flutuar */
+}
+
+.card-v2:hover {
+    transform: translateY(-10px);   /* Faz o card "subir" ao passar o mouse */
+}
+
+.icone-wrapper {
+    background-color: #e3a72f;      /* Fundo dourado/laranja para o quadradinho do ícone */
+    width: 60px;                    /* Largura fixa do quadrado */
+    height: 60px;                   /* Altura fixa do quadrado */
+    border-radius: 12px;            /* Arredonda levemente os cantos do quadrado do ícone */
+    display: flex;                  /* Ativa flexbox interno */
+    justify-content: center;        /* Centraliza a imagem do ícone horizontalmente dentro do quadrado */
+    align-items: center;            /* Centraliza a imagem do ícone verticalmente dentro do quadrado */
+    margin-bottom: 20px;            /* Espaço entre o ícone e o título do serviço abaixo */
+}
+
+.icone-wrapper img {
+    width: 30px;                    /* Define que a imagem do ícone terá metade do tamanho do container (30px) */
+}
+
+.card-v2 h3 {
+    font-size: 1.4rem;              /* Tamanho do título do serviço */
+    margin-bottom: 15px;            /* Espaço entre o título e a descrição */
+    color: var(--bg-dark);                 /* Força a cor escura no título */
+}
+
+.card-v2 p {
+    color: #666;                    /* Cor cinza para a descrição, criando hierarquia visual */
+    line-height: 1.6;               /* Aumenta o espaçamento entre linhas do texto para facilitar a leitura */
+}
+
+/* ==========================================================================
+   SEÇÃO SOBRE NÓS (EQUIPA E HISTÓRIA)
+   ========================================================================== */
+.secao-sobre {
+    padding: 100px 8%;              /* Espaçamento grande em cima/baixo para dar "ar" à leitura */
+}
+
+.container-sobre {
+    display: flex;                  /* Coloca a imagem e o texto lado a lado */
+    align-items: center;            /* Alinha o texto verticalmente ao centro da imagem */
+    gap: 50px;                      /* Cria um espaço de 50px entre a foto e o conteúdo */
+    max-width: 1200px;              /* Impede que o conteúdo se estique demais em monitores grandes */
+    margin: 0 auto;                 /* Centraliza o container inteiro na página */
+}
+
+.sobre-imagem {
+    flex: 1;                        /* Faz a coluna da imagem ocupar uma parte igual do espaço */
+}
+
+.sobre-imagem img {
+    width: 100%;                    /* A imagem ocupa toda a largura da sua coluna flexível */
+    border-radius: 10px;            /* Arredonda levemente os cantos da fotografia */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4); /* Cria uma sombra profunda para dar relevo */
+}
+
+.sobre-conteudo {
+    flex: 1;                        /* Faz a coluna de texto ocupar o mesmo espaço que a imagem */
+    text-align: left;               /* Mantém o alinhamento de leitura à esquerda */
+}
+
+.sobre-conteudo h2 {
+    font-size: 2.8rem;              /* Título grande para destacar o nome da empresa */
+    margin-bottom: 25px;            /* Espaço entre o título e o parágrafo de destaque */
+    line-height: 1.2;               /* Ajusta o espaçamento entre as linhas do título */
+}
+
+.destaque-laranja {
+    color: var(--primary-color) !important; /* Força o uso do dourado/laranja das variáveis */
+    font-weight: 700;               /* Deixa o texto em negrito (bold) */
+    font-size: 1.15rem;             /* Aumenta o tamanho para destacar a frase de impacto */
+    margin-bottom: 20px;            /* Espaço para o parágrafo seguinte */
+    line-height: 1.6;               /* Espaçamento maior entre linhas para facilitar a leitura */
+}
+
+.sobre-conteudo p {
+    line-height: 1.1;               /* Deixa o texto comum um pouco mais compacto */
+    margin-bottom: 20px;            /* Espaço entre parágrafos */
+}
+
+.sobre-conteudo .botao-principal {
+    display: inline-block;          /* Permite que o link aceite medidas de altura e largura */
+    background-color: var(--bg-card);      /* Cor azul para diferenciar do botão principal do topo */
+    padding: 15px 40px;             /* Define o tamanho interno do botão */
+    border-radius: 30px;            /* Formato arredondado para o botão */
+    text-decoration: none;          /* Remove o sublinhado de link */
+    font-weight: bold;              /* Texto em negrito */
+    margin-top: 20px;               /* Empurra o botão para baixo do texto */
+    transition: 0.3s;               /* Suaviza a transição de cor ao passar o rato */
+}
+/* ==========================================================================
+   FAIXA DE CHAMADA (CTA - AZUL)
+   ========================================================================== */
+.faixa-azul {
+    background-color: #4c88bf;      /* Usa o azul vibrante para captar a atenção do utilizador */
+    padding: 60px 10%;              /* Altura de 60px com recuo lateral de 10% */
+    display: flex;                  /* Alinha o texto (esquerda) e o botão (direita) */
+    justify-content: space-between; /* Empurra o texto para um lado e o botão para o outro */
+    align-items: center;            /* Centraliza ambos verticalmente na faixa */
+    color: white;                   /* Garante que todo o texto seja branco */
+}
+
+.conteudo-faixa h2 {
+    font-size: 1.8rem;              /* Tamanho do título da faixa */
+    margin-bottom: 5px;             /* Espaço mínimo para o parágrafo debaixo */
+}
+
+.botao-whatsapp {
+    background-color: var(--primary-color);      /* Dourado/Laranja para criar alto contraste com o azul */
+    color: #333;                    /* Texto escuro para ser fácil de ler sobre o laranja */
+    padding: 15px 30px;             /* Tamanho do botão de ação */
+    border-radius: 8px;             /* Cantos levemente arredondados */
+    text-decoration: none;          /* Remove sublinhado */
+    font-weight: bold;              /* Negrito para dar importância */
+}
+
+/* ==========================================================================
+   SEÇÃO CONTATO (TEXTO LATERAL E FORMULÁRIO)
+   ========================================================================== */
+.container-contato-flex {
+    display: flex;                  /* Coloca as informações e o formulário lado a lado */
+    max-width: 1100px;              /* Limita a largura para o conteúdo não espalhar demais */
+    margin: 0 auto;                 /* Centraliza o bloco todo na tela */
+    gap: 60px;                      /* Cria um corredor de 60px entre o texto e o formulário */
+}
+
+.info-contato-lateral h2 {
+    color: var(--text-light);       /* Título em branco gelo conforme suas variáveis */
+    font-size: 2.2rem;              /* Tamanho de destaque para a chamada de conversa */
+    margin-bottom: 10px;            /* Espaço para o parágrafo debaixo */
+}
+
+.info-contato-lateral p {
+    color: #aaa;                    /* Cinza médio para o subtítulo (menos peso visual) */
+    margin-bottom: 30px;            /* Espaço antes de começar os blocos de ícones */
+}
+
+.bloco-contato {
+    display: flex;                  /* Alinha o círculo do ícone com o texto ao lado */
+    align-items: center;            /* Centraliza o ícone verticalmente em relação ao texto */
+    gap: 20px;                      /* Espaço entre o ícone e a descrição */
+    margin-bottom: 30px;            /* Espaço entre cada item (Localização, E-mail, etc) */
+    text-align: left;               /* Garante que o texto fique alinhado à esquerda */
+}
+
+/* Títulos dos dados (Localização/E-mail) */
+.texto-contato h3 {
+    display: block;
+    color: var(--bg-card);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+/* O dado em si */
+.texto-contato p {
+    color: var(--text-light);
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.circulo-icone {
+    width: 50px;                    /* Largura fixa do círculo */
+    height: 50px;                   /* Altura fixa do círculo */
+    background-color: var(--bg-card); /* Usa o azul do seu tema como fundo */
+    color: white;                   /* Cor do ícone interno */
+    border-radius: 50%;             /* Transforma o fundo em um círculo perfeito */
+    display: flex;                  /* Ativa flexbox para centralizar o ícone */
+    justify-content: center;        /* Centraliza o ícone horizontalmente */
+    align-items: center;            /* Centraliza o ícone verticalmente */
+    flex-shrink: 0;                 /* Impede que o círculo seja esmagado se o texto crescer */
+    font-size: 20px;                /* Define o tamanho do ícone (ícone de mapa, envelope, etc) */
+}
+
+.bloco-contato:hover .circulo-icone {
+    transform: scale(1.1);          /* Faz o círculo crescer 10% quando o mouse passa no bloco */
+}
+
+.card-formulario-branco {
+    flex: 1.2;                      /* Faz o formulário ser um pouco mais largo que o texto lateral */
+    background-color: var(--text-light); /* Fundo claro para contrastar com o site escuro */
+    padding: 40px;                  /* Espaço interno para os campos não tocarem a borda */
+    border-radius: 20px;            /* Bordas arredondadas e modernas */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* Sombra forte para dar profundidade e destaque */
+}
+
+.card-formulario-branco input, .card-formulario-branco textarea {
+    width: 100%;                    /* Ocupa 100% da largura do card branco */
+    padding: 15px 20px;             /* Espaço confortável para o usuário digitar */
+    margin-bottom: 20px;            /* Espaço entre um campo e o outro */
+    border-radius: 10px;            /* Bordas suaves nos campos de texto */
+    background-color: #f8f9fa;      /* Fundo cinza bem clarinho nos inputs */
+    border: 2px solid transparent;  /* Reserva a borda para não "mexer" no layout no foco */
+    font-size: 1rem;                /* Tamanho de leitura padrão */
+    color: #333;                    /* Texto escuro para quem digita */
+    transition: all 0.3s ease;      /* Suaviza mudanças de cor e foco */
+    outline: none;                  /* Remove o contorno azul padrão do navegador */
+}
+
+.btn-enviar-azul {
+    width: 100%;                    /* Botão de envio ocupa a largura toda */
+    background-color: var(--bg-card); /* Azul do tema da Robotic Continuity */
+    color: var(--text-light);       /* Texto claro no botão */
+    border: none;                   /* Remove a borda padrão de botões HTML */
+    padding: 16px;                  /* Altura confortável para o clique */
+    border-radius: 10px;            /* Mesma curvatura dos campos acima */
+    font-weight: 700;               /* Deixa o texto do botão em negrito */
+    text-transform: uppercase;      /* Letras maiúsculas para maior impacto */
+    cursor: pointer;                /* Muda o mouse para a "mãozinha" */
+    transition: all 0.3s ease;      /* Prepara para o efeito de hover */
+}
+
+.btn-enviar-azul:hover {
+    background-color: var(--primary-color); /* Tom levemente mais escuro no hover */
+    color: var(--bg-dark);       /* muda a cor da letra */
+}
+/* ==========================================================================
+   RODAPÉ (FOOTER) E REDES SOCIAIS
+   ========================================================================== */
+footer {
+    text-align: center;             /* Centraliza textos e ícones sociais */
+    padding: 40px 20px;             /* Espaçamento interno vertical */
+    border-top: 1px solid #333;     /* Linha fina cinza para separar do conteúdo */
+}
+
+.social-icons {
+    display: flex;                  /* Coloca os ícones sociais lado a lado */
+    justify-content: center;        /* Centraliza o grupo de ícones na tela */
+    gap: 20px;                      /* Espaço entre Instagram, LinkedIn e GitHub */
+}
+
+.social-icons a {
+    color: var(--text-light);       /* Ícones começam na cor branca gelo */
+    font-size: 1.8rem;              /* Tamanho de destaque para os ícones */
+    transition: transform 0.3s, color 0.3s; /* Suaviza a animação de subir e mudar cor */
+}
+
+.social-icons a:hover {
+    color: var(--primary-color);    /* Fica dourado ao passar o mouse */
+    transform: translateY(-5px);    /* Efeito visual de subir levemente */
+}
+
+.whatsapp-float {
+    position: fixed;                /* Fixa o botão na tela (ele não sai do lugar ao rolar) */
+    bottom: 20px;                   /* Distância do fundo da janela */
+    right: 20px;                    /* Distância do lado direito da janela */
+    background: #25d366;            /* Verde oficial do WhatsApp */
+    color: var(--text-light);       /* Cor do ícone dentro do botão */
+    width: 60px; height: 60px;      /* Tamanho circular do botão */
+    border-radius: 50%;             /* Torna o botão um círculo perfeito */
+    display: flex;                  /* Ativa flex para centralizar o ícone */
+    justify-content: center; align-items: center;
+    font-size: 30px;                /* Tamanho do ícone do Whats */
+    z-index: 2000;                  /* Fica acima de todas as outras camadas do site */
+}
+
+.whatsapp-float:hover {
+    background: var(--primary-color); 
+    transform: scale(1.1);
+}
